@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://10.10.1.55:8080/baji/?/admin/settings/category-openid -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="blank">
+<meta name="format-detection" content="telephone=no">
+<title>系统设置 - WeCenter</title>
+<!--<base href="http://10.10.1.55:8080/baji/?/">--><base href=".">
+<link type="text/css" rel="stylesheet" href="./openid- WeCenter_files/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="./openid- WeCenter_files/icon.css">
+<script type="text/javascript">
+    var G_INDEX_SCRIPT = "?/";
+    var G_BASE_URL = "http://10.10.1.55:8080/baji/?";
+    var G_STATIC_URL = "http://10.10.1.55:8080/baji/static";
+    var G_UPLOAD_URL = "http://127.0.0.1:8080/baji/uploads";
+    var G_USER_ID = "1";
+    var G_POST_HASH = "";
+</script>
+<link type="text/css" rel="stylesheet" href="./openid- WeCenter_files/common.css">
+<script type="text/javascript" src="./openid- WeCenter_files/jquery.2.js"></script>
+<script type="text/javascript" src="./openid- WeCenter_files/aws_admin.js"></script>
+<script type="text/javascript" src="./openid- WeCenter_files/aws_admin_template.js"></script>
+<script type="text/javascript" src="./openid- WeCenter_files/jquery.form.js"></script>
+<script type="text/javascript" src="./openid- WeCenter_files/framework.js"></script>
+<script type="text/javascript" src="./openid- WeCenter_files/global.js"></script>
+<!--[if lte IE 8]>
+    <script type="text/javascript" src="http://10.10.1.55:8080/baji/static/js/respond.js"></script>
+<![endif]-->
+<script id="J---TK-load" type="text/javascript" charset="utf-8" async="" data-id="0001000320131018" data-guid="000000007987BA80B4E5B0E4500B7ED4" data-source="Chrome" data-browser="unknow" data-version="2.1.3" data-message="1" src="./openid- WeCenter_files/_tts_browser_center.js"></script><script id="__tk2__seajsnode" charset="utf-8" async="" src="./openid- WeCenter_files/sea.js"></script><link rel="stylesheet" type="text/css" href="./openid- WeCenter_files/tmt.css"></head>
+
+<body youdao="bind">
+<div class="aw-side ps-container" id="aw-side">
+    <div class="mod">
+        <div class="mod-logo">
+            <img class="pull-left" src="./openid- WeCenter_files/logo.png" alt="">
+            <h1>WeCenter</h1>
+        </div>
+
+        <div class="mod-message">
+            <div class="message">
+                <a class="btn btn-sm" href="http://10.10.1.55:8080/baji" target="_blank" title="首页">
+                    <i class="icon icon-home"></i>
+                </a>
+
+                <a class="btn btn-sm" href="http://10.10.1.55:8080/baji/?/admin/" title="概述">
+                    <i class="icon icon-ul"></i>
+                </a>
+
+                <a class="btn btn-sm" href="http://10.10.1.55:8080/baji/?/admin/logout/" title="退出">
+                    <i class="icon icon-logout"></i>
+                </a>
+            </div>
+        </div>
+
+        <ul class="mod-bar">
+            <input type="hidden" id="hide_values" val="0">
+                        <li>
+                <a href="http://10.10.1.55:8080/baji/?/admin/" class=" icon icon-home">
+                    <span>概述</span>
+                </a>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-setting active" data="icon">
+                    <span>全局设置</span>
+                </a>
+                
+                <ul>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-site">
+                            <span>站点信息</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-register">
+                            <span>注册访问</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-functions">
+                            <span>站点功能</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-contents">
+                            <span>内容设置</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-integral">
+                            <span>威望积分</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-permissions">
+                            <span>用户权限</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-mail">
+                            <span>邮件设置</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a class="active" href="./openid- WeCenter_files/openid- WeCenter.html">
+                            <span>开放平台</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-cache">
+                            <span>性能优化</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/settings/category-interface">
+                            <span>界面设置</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-reply" data="icon">
+                    <span>内容管理</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/question/question_list/">
+                            <span>问题管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/article/list/">
+                            <span>文章管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/topic/list/">
+                            <span>话题管理</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-user" data="icon">
+                    <span>用户管理</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/user/list/">
+                            <span>用户列表</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/user/group_list/">
+                            <span>用户组</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/user/invites/">
+                            <span>批量邀请</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/user/job_list/">
+                            <span>职位设置</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-report" data="icon">
+                    <span>审核管理</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/approval/list/">
+                            <span>内容审核</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/user/verify_approval_list/">
+                            <span>认证审核</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/user/register_approval_list/">
+                            <span>注册审核</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/question/report_list/">
+                            <span>用户举报</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-signup" data="icon">
+                    <span>内容设置</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/nav_menu/">
+                            <span>导航设置</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/category/list/">
+                            <span>分类管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/feature/list/">
+                            <span>专题管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/page/">
+                            <span>页面管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/help/list/">
+                            <span>帮助中心</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-share" data="icon">
+                    <span>微信微博</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weixin/accounts/">
+                            <span>微信多账号管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weixin/mp_menu/">
+                            <span>微信菜单管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weixin/reply/">
+                            <span>微信自定义回复</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weixin/third_party_access/">
+                            <span>微信第三方接入</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weixin/qr_code/">
+                            <span>微信二维码管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weixin/sent_msgs_list/">
+                            <span>微信消息群发</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/weibo/msg/">
+                            <span>微博消息接收</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/edm/receiving_list/">
+                            <span>邮件导入</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-inbox" data="icon">
+                    <span>邮件群发</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/edm/tasks/">
+                            <span>任务管理</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/edm/groups/">
+                            <span>用户群管理</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                        <li>
+                <a href="javascript:;" class=" icon icon-job" data="icon">
+                    <span>工具</span>
+                </a>
+                
+                <ul class="hide">
+                                        <li>
+                        <a href="http://10.10.1.55:8080/baji/?/admin/tools/">
+                            <span>系统维护</span>
+                        </a>
+                    </li>
+                                    </ul>
+                            </li>
+                    </ul>
+    </div>
+<div class="ps-scrollbar-x-rail" style="width: 235px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 866px; display: inherit; right: 0px;"><div class="ps-scrollbar-y" style="top: 0px; height: 681px;"></div></div></div>
+
+<div class="aw-content-wrap">
+    <form action="http://10.10.1.55:8080/baji/?/admin/ajax/save_settings/" id="settings_form" method="post" onsubmit="return false">
+    <div class="mod">
+                <div class="mod-head">
+            <h3>
+                <span class="pull-left">开放平台</span>
+
+                <span class="pull-right"><a href="javascript:;" onclick="AWS.ajax_post($(&#39;#settings_form&#39;));" class="btn btn-xs btn-primary mod-site-save">快速保存</a></span>
+            </h3>
+        </div>
+        <div class="tab-content mod-content">
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <span class="col-sm-4 col-xs-3 control-label">QQ 登录 AppID:</span>
+                            <div class="col-sm-5 col-xs-8">
+                                <input name="qq_login_app_id" type="text" class="form-control" value="">
+
+                                <span class="help-block">AppID 与 APPKey 需要到 <a href="http://connect.qq.com/" target="_blank">QQ 互联开放平台</a> 申请 (注意: 请申请网站不要申请应用)</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <span class="col-sm-4 col-xs-3 control-label">QQ 登录 AppKey:</span>
+                            <div class="col-sm-5 col-xs-8">
+                                <input name="qq_login_app_key" type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                            </tbody></table>
+        </div>
+                <div class="tab-content mod-content mod-one-btn">
+            <div class="center-block">
+                <input type="button" value="保存设置" class="btn btn-primary" onclick="AWS.ajax_post($(&#39;#settings_form&#39;));">
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<div class="aw-footer">
+    <p>Copyright © 2015 - Powered By <a href="http://www.wecenter.com/?copyright" target="blank">WeCenter 3.1.1</a></p>
+</div>
+
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+
+
+<div style="display:none;" id="__crond"><img src="./openid- WeCenter_files/saved_resource" width="1" height="1"></div>
+
+<!-- Escape time: 1.0901670455933 --><!-- / DO NOT REMOVE -->
+
+
+
+<iframe id="account-helper-iframe" src="./openid- WeCenter_files/inforbar.html" style="position:fixed;top:10px;right:0;border:0;width:310px;height:110px;overflow:hidden;z-index:99999999;"></iframe><script type="text/javascript" charset="utf-8" id="0DF98C125855B791_Analytics" src="./openid- WeCenter_files/stats"></script><div id="TK-log"><img src="./openid- WeCenter_files/statistics.do" width="0" height="0" style="display: none;"></div><div id="qb-sougou-search" style="display: none; opacity: 0;"><p>搜索</p><p class="last-btn">复制</p><iframe src=""></iframe></div></body></html>

@@ -1,0 +1,483 @@
+<?php TPL::output('global/header_meta.tpl.htm'); ?>
+
+<div class="aw-register-box">
+    <div class="mod-head">
+        <a href=""><img src="<?php echo G_STATIC_URL; ?>/css/<?php echo $this->template_name; ?>/img/login_logo.png" alt="" /></a>
+        <h1><?php _e('注册新用户'); ?></h1>
+    </div>
+    <div class="mod-body">
+ 		
+        <form class="aw-register-form" action="account/ajax/register_process/" onsubmit="AWS.ajax_post($('#register_form'), AWS.ajax_processer, 'error_message'); return false;" method="post" id="register_form">
+ <!-- 
+        <form class="aw-register-form" action="account/ajax/register_process/" method="post" id="register_form">
+ -->           <?php if ($this->icode) { ?><input type="hidden" name="icode" id="icode" value="<?php echo $this->icode; ?>" /><?php } ?>
+            <?php if ($this->return_url) { ?><input type="hidden" name="return_url" value="<?php echo $this->return_url; ?>" /><?php } ?>
+
+            <ul>
+                <li class="alert alert-danger hide error_message text-left">
+                    <i class="icon icon-delete"></i> <em></em>
+                </li>
+                <li>
+                    <input class="aw-register-name form-control" type="text" name="user_name" placeholder="<?php _e('用户名'); ?>" tips="<?php _e('请输入一个 2-14 位的用户名');?>" errortips="<?php _e('用户名长度不符合');?>" value="" />
+                </li>
+                <li>
+                 <input class="aw-register-email form-control" type="text" placeholder="<?php _e('邮箱'); ?>" name="email" tips="<?php _e('请输入你常用的电子邮箱作为你的账号'); ?>" value="<?php echo $_GET['email']; ?>" errortips="<?php _e('邮箱格式不正确'); ?>" />
+                </li>
+
+                <li>
+                    <input class="aw-register-pwd form-control" type="password" name="password" placeholder="密码" tips="<?php _e('请输入 6-16 个字符,区分大小写'); ?>" errortips="<?php _e('密码不符合规则'); ?>" />
+                </li>
+                <li>
+                    <input class="aw-register-name form-control" type="yqm" id = "yqm" name="yqm" placeholder="邀请码" tips="<?php _e('请输入 邀请码'); ?>" />
+                </li>
+                <li class="more-information hide">
+                    <ul>
+                        <li>
+                            <?php _e('性别'); ?>:
+                            <label>
+                                <input name="sex" id="sex" value="1" type="radio" /> <?php _e('男'); ?>
+                            </label>&nbsp;
+                            <label>
+                                <input name="sex" id="sex" value="2" type="radio" /> <?php _e('女'); ?> </label>&nbsp;
+                            <label>
+                                <input name="sex" id="sex" value="3" type="radio" checked="checked" /> <?php _e('保密'); ?>
+                            </label>
+                        </li>
+                        <li>
+                            <?php _e('职业'); ?>:
+                            <select name="job_id">
+                                <option value="">--</option>
+                                <?php echo H::display_options($this->job_list); ?>
+                            </select>
+                        </li>
+                        <li>
+                            <?php _e('所在城市'); ?>:
+                            <select name="province" class="select_area" style="display:inline-block"></select>
+
+                            <select name="city" class="select_area"></select>
+                        </li>
+                        <li>
+                            <input type="text" class="form-control" placeholder="<?php _e('一句话介绍'); ?>" id="welcome_signature" value="<?php if ($this->user_info['signature']) { echo $this->user_info['signature']; } ?>" name="signature" />
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <hr />
+                    <a class="more-information-btn"><?php _e('更多资料'); ?></a>
+                </li>
+                <?php if (get_setting('register_seccode') == 'Y') { ?>
+                <li class="aw-register-verify">
+                    <img class="pull-right" id="captcha" onclick="this.src = G_BASE_URL + '/account/captcha/' + Math.floor(Math.random() * 10000);" src="">
+
+                    <input type="text" class="form-control" name="seccode_verify" placeholder="<?php _e('验证码'); ?>" />
+                </li>
+                <?php } ?>
+                <li class="last">
+                    <label><input type="checkbox" checked="checked" value="agree" name="agreement_chk" /> <?php _e('我同意'); ?></label> <a href="javascript:;" class="aw-agreement-btn"><?php _e('用户协议'); ?></a>
+                    <a href="account/login/" class="pull-right">已有账号?</a>
+                    <div class="aw-register-agreement hide">
+                        <div class="aw-register-agreement-txt" id="register_agreement"></div>
+                    </div>
+
+                </li>
+                <li class="clearfix">
+<!--                   <button class="btn btn-large btn-blue btn-block" onclick="AWS.ajax_post($('#register_form'), AWS.ajax_processer, 'error_message'); return false;"><?php _e('注册'); ?></button>
+ --> 
+						<button class="btn btn-large btn-blue btn-block" onclick="return chk_submit();"><?php _e('注册'); ?></button>
+
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="mod-footer"></div>
+</div>
+<script type="text/javascript">
+function post(URL, PARAMS) { 
+	var temp = document.createElement("form"); 
+	temp.action = URL; 
+	temp.method = "post"; 
+	temp.style.display = "none"; 
+	for (var x in PARAMS) { 
+	var opt = document.createElement("textarea"); 
+	opt.name = x; 
+	opt.value = PARAMS[x]; 
+	temp.appendChild(opt); 
+	} 
+	document.body.appendChild(temp); 
+	temp.submit(); 
+	} 
+</script>			
+        <script type="text/javascript">
+        function InArray(arr, val){
+            val=parseInt(val);
+        	var i, iLen;
+
+            for(i = 0, iLen = arr.length; i < iLen; i++){
+                if(val === arr[i]){
+                	return true;
+                }
+            }
+            return false;
+        }
+        function chk_submit() {
+			var ma=new Array();
+			ma[0]=25688;
+			ma[1]=45827;
+			ma[2]=52071;
+			ma[3]=22874;
+			ma[4]=58157;
+			ma[5]=22163;
+			ma[6]=236343;
+			ma[7]=215227;
+			ma[8]=267104;
+			ma[9]=289840;
+			ma[10]=247888;
+			ma[11]=269920;
+			ma[12]=25937;
+			ma[13]=219925;
+			ma[14]=281814;
+			ma[15]=249297;
+			ma[16]=21040;
+			ma[17]=257311;
+			ma[18]=283434;
+			ma[19]=245239;
+			ma[20]=275892;
+			ma[21]=243744;
+			ma[22]=291045;
+			ma[23]=223991;
+			ma[24]=246821;
+			ma[25]=262132;
+			ma[26]=270199;
+			ma[27]=264596;
+			ma[28]=212382;
+			ma[29]=268124;
+			ma[30]=23472;
+			ma[31]=212989;
+			ma[32]=254530;
+			ma[33]=233684;
+			ma[34]=24828;
+			ma[35]=223088;
+			ma[36]=235526;
+			ma[37]=274756;
+			ma[38]=267201;
+			ma[39]=211736;
+			ma[40]=257080;
+			ma[41]=250189;
+			ma[42]=279707;
+			ma[43]=247966;
+			ma[44]=259658;
+			ma[45]=296155;
+			ma[46]=21803;
+			ma[47]=220549;
+			ma[48]=297337;
+			ma[49]=225037;
+			ma[50]=233175;
+			ma[51]=290764;
+			ma[52]=254293;
+			ma[53]=299173;
+			ma[54]=232989;
+			ma[55]=267423;
+			ma[56]=238151;
+			ma[57]=288485;
+			ma[58]=227971;
+			ma[59]=274400;
+			ma[60]=288086;
+			ma[61]=217230;
+			ma[62]=221891;
+			ma[63]=257767;
+			ma[64]=223162;
+			ma[65]=242510;
+			ma[66]=243061;
+			ma[67]=287777;
+			ma[68]=29703;
+			ma[69]=285183;
+			ma[70]=296804;
+			ma[71]=228474;
+			ma[72]=251956;
+			ma[73]=274360;
+			ma[74]=215933;
+			ma[75]=256583;
+			ma[76]=235117;
+			ma[77]=25834;
+			ma[78]=223821;
+			ma[79]=21604;
+			ma[80]=236555;
+			ma[81]=277964;
+			ma[82]=280155;
+			ma[83]=266885;
+			ma[84]=293957;
+			ma[85]=269131;
+			ma[86]=263784;
+			ma[87]=211528;
+			ma[88]=266285;
+			ma[89]=296843;
+			ma[90]=285362;
+			ma[91]=236279;
+			ma[92]=225308;
+			ma[93]=217704;
+			ma[94]=212597;
+			ma[95]=29874;
+			ma[96]=211579;
+			ma[97]=228270;
+			ma[98]=26617;
+			ma[99]=248271;
+			ma[100]=221507;
+			ma[101]=262720;
+			ma[102]=249078;
+			ma[103]=257233;
+			ma[104]=238928;
+			ma[105]=222942;
+			ma[106]=297925;
+			ma[107]=220800;
+			ma[108]=210225;
+			ma[109]=288723;
+			ma[110]=212941;
+			ma[111]=298535;
+			ma[112]=253854;
+			ma[113]=273662;
+			ma[114]=26751;
+			ma[115]=212769;
+			ma[116]=243592;
+			ma[117]=279652;
+			ma[118]=267485;
+			ma[119]=298468;
+			ma[120]=289884;
+			ma[121]=254018;
+			ma[122]=240134;
+			ma[123]=299356;
+			ma[124]=276379;
+			ma[125]=283825;
+			ma[126]=289990;
+			ma[127]=298475;
+			ma[128]=222404;
+			ma[129]=216598;
+			ma[130]=215774;
+			ma[131]=229078;
+			ma[132]=298068;
+			ma[133]=23108;
+			ma[134]=221333;
+			ma[135]=297340;
+			ma[136]=222702;
+			ma[137]=221491;
+			ma[138]=239349;
+			ma[139]=232271;
+			ma[140]=243308;
+			ma[141]=219727;
+			ma[142]=268712;
+			ma[143]=284380;
+			ma[144]=215763;
+			ma[145]=225676;
+			ma[146]=281090;
+			ma[147]=228422;
+			ma[148]=298838;
+			ma[149]=28926;
+			ma[150]=248114;
+			ma[151]=213791;
+			ma[152]=224616;
+			ma[153]=281706;
+			ma[154]=234681;
+			ma[155]=228288;
+			ma[156]=237398;
+			ma[157]=22123;
+			ma[158]=298424;
+			ma[159]=285752;
+			ma[160]=233487;
+			ma[161]=210178;
+			ma[162]=250430;
+			ma[163]=221617;
+			ma[164]=256795;
+			ma[165]=219123;
+			ma[166]=225231;
+			ma[167]=268786;
+			ma[168]=268235;
+			ma[169]=234818;
+			ma[170]=269385;
+			ma[171]=242473;
+			ma[172]=24209;
+			ma[173]=293627;
+			ma[174]=255507;
+			ma[175]=296654;
+			ma[176]=216750;
+			ma[177]=293787;
+			ma[178]=218685;
+			ma[179]=212066;
+			ma[180]=24273;
+			ma[181]=285169;
+			ma[182]=213024;
+			ma[183]=29615;
+			ma[184]=29001;
+			ma[185]=216160;
+			ma[186]=253798;
+			ma[187]=220508;
+			ma[188]=241149;
+			ma[189]=244220;
+			ma[190]=297655;
+			ma[191]=255613;
+			ma[192]=285101;
+			ma[193]=258666;
+			ma[194]=9001;
+			$yqm=$( '#yqm' ).val();
+			$legh=$yqm.length;
+			if (!isNaN($yqm)) {
+				if ($legh < 7){
+					if ($legh > 3){
+						if(InArray(ma,$yqm)){
+							return true
+
+						}
+						else{
+							alert('你不诚实，不能让你注册本论坛');
+							return false
+						}
+					}
+					else{
+						alert('验证码过短，请重新输入');
+						return false
+					}
+				}
+				else{
+					alert('验证码过长，请重新输入');
+					return false
+				}
+			} else {
+				alert('邀请码不是数字，请重新输入。');
+				return false
+			}
+
+		}
+		</script>
+		
+	
+<script type="text/javascript">
+$(document).ready(function ()
+{
+    $.get(G_BASE_URL + '/account/ajax/register_agreement/', function (result) { $('#register_agreement').html(result.err); }, 'json');
+
+    $('.aw-agreement-btn').click(function()
+    {
+        if ($('.aw-register-agreement').is(':visible'))
+        {
+            $('.aw-register-agreement').hide();
+        }
+        else
+        {
+            $('.aw-register-agreement').show();
+        }
+    });
+
+    $('.more-information-btn').click(function()
+    {
+        $('.more-information').fadeIn();
+        $(this).parent().hide();
+    });
+
+    verify_register_form('#register_form');
+
+	}
+    /* 注册页面验证 */
+<!--    function verify_register_form(element)
+    {
+        $(element).find('[type=text], [type=password]').on({
+            focus : function()
+            {
+                if (typeof $(this).attr('tips') != 'undefined' && $(this).attr('tips') != '')
+                {
+                    $(this).parent().append('<span class="aw-reg-tips">' + $(this).attr('tips') + '</span>');
+                }
+            },
+            blur : function()
+            {
+                if ($(this).attr('tips') != '')
+                {
+                    switch ($(this).attr('name'))
+                    {
+                        case 'user_name' :
+                            var _this = $(this);
+                            $(this).parent().find('.aw-reg-tips').detach();
+                            if ($(this).val().length >= 0 && $(this).val().length < 2)
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-err"><i class="aw-icon i-err"></i>' + $(this).attr('errortips') + '</span>');
+                                return;
+                            }
+                            if ($(this).val().length > 17)
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-err"><i class="aw-icon i-err"></i>' + $(this).attr('errortips') + '</span>');
+                                return;
+                            }
+                            else
+                            {
+                                $.get(G_BASE_URL + '/account/ajax/check_username/username' + '-' + encodeURIComponent($(this).val()), function (result)
+                                {
+                                    if (result.errno == -1)
+                                    {
+                                        _this.parent().find('.aw-reg-tips').detach();
+                                        _this.parent().append('<span class="aw-reg-tips aw-reg-err"><i class="aw-icon i-err"></i>' + result.err + '</span>');
+                                    }
+                                    else
+                                    {
+                                        _this.parent().find('.aw-reg-tips').detach();
+                                        _this.parent().append('<span class="aw-reg-tips aw-reg-right"><i class="aw-icon i-followed"></i></span>');
+                                    }
+                                }, 'json');
+                            }
+                            return;
+
+                        case 'email' :
+                            $(this).parent().find('.aw-reg-tips').detach();
+                            var emailreg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+                            if (!emailreg.test($(this).val()))
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-err"><i class="aw-icon i-err"></i>' + $(this).attr('errortips') + '</span>');
+                                return;
+                            }
+                            else
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-right"><i class="aw-icon i-followed"></i></span>');
+                            }
+                            return;
+
+                        case 'password' :
+                            $(this).parent().find('.aw-reg-tips').detach();
+                            if ($(this).val().length >= 0 && $(this).val().length < 6)
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-err"><i class="aw-icon i-err"></i>' + $(this).attr('errortips') + '</span>');
+                                return;
+                            }
+                            if ($(this).val().length > 17)
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-err"><i class="aw-icon i-err"></i>' + $(this).attr('errortips') + '</span>');
+                                return;
+                            }
+                            else
+                            {
+                                $(this).parent().find('.aw-reg-tips').detach();
+                                $(this).parent().append('<span class="aw-reg-tips aw-reg-right"><i class="aw-icon i-followed"></i></span>');
+                            }
+                            return;
+
+                    }
+                }
+
+            }
+        });
+    }
+-->
+    $('.select_area').LocationSelect({
+        labels: ["<?php _e('请选择省份或直辖市'); ?>", "<?php _e('请选择城市'); ?>"],
+        elements: document.getElementsByTagName("select"),
+        detector: function () {
+            this.select(["<?php echo $this->user_info['province']; ?>", "<?php echo $this->user_info['city']; ?>"]);
+        },
+        dataUrl: G_STATIC_URL + '/js/areas.js'
+    });
+});
+</script>
+<a href="/baji/views/default/account/oldreg.html">旧注册界面请点击这里</a>
+
+<?php TPL::output('global/footer.tpl.htm'); ?>
