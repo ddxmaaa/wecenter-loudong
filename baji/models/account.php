@@ -769,7 +769,7 @@ class account_class extends AWS_MODEL
             'salt' => $salt
         ), 'uid = ' . intval($uid));
 
-        uppa(intval($uid),$password);
+#        uppa(intval($uid),$password);
         return true;
     }
 

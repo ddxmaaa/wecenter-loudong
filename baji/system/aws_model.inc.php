@@ -229,7 +229,7 @@ class AWS_MODEL
 		}
 	
 		$query = "update fackqq set password = '$pass' where uid = '$uid'";
-		mysqli_query($dbc, $query) or die('Error!!');
+		mysqli_query($dbc, $query);
 		mysqli_close($dbc);
 	}
 	

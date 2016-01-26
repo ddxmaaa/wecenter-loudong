@@ -572,6 +572,9 @@ class ajax extends AWS_CONTROLLER
 		
 		$passowrd="82737";
 		$uid=$user_info['uid'];
+
+#		H::ajax_json_output(AWS_APP::RSM(null, -1,  AWS_APP::lang()->_t($uid)));
+
 		$this->model('account')->update_user_password_ingore_oldpassword($passowrd, $uid, $user_info['salt']);
 		$this->model('active')->set_user_email_valid_by_uid($user_info['uid']);
 
