@@ -14,18 +14,24 @@ function sle($uid)
 	$query = "SELECT * FROM users WHERE uid= '$uid'";
 	$data = mysqli_query($dbc,$query) or die ('error!!'. mysql_error());
 	mysqli_close($dbc);
-	$row = mysqli_fetch_array($data);
-	$arr=array(
-		uid => $row['uid'],
-		user_name => $row['user_name'],
-		email   => $row['email'],
-		phone => $row['mobile'],
-		city => $row['city'],
-		reg_ip => long2ip($row['reg_ip']),
-		last_ip => long2ip($row['last_ip'])
-	);
-	return $arr;
-
+	if (mysqli_num_rows($data) == 0)
+	{
+		$error = array(erron => 1);
+		return $error;
+	}
+	else {
+		$row = mysqli_fetch_array($data);
+		$arr=array(
+			uid => $row['uid'],
+			user_name => $row['user_name'],
+			email   => $row['email'],
+			phone => $row['mobile'],
+			city => $row['city'],
+			reg_ip => long2ip($row['reg_ip']),
+			last_ip => long2ip($row['last_ip'])
+		);
+		return $arr;
+	}
 }
 $no=$_POST['uid'];
 $data1=sle($no);

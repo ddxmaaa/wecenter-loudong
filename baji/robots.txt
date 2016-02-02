@@ -12,3 +12,4 @@ Disallow: /tmp/
 Disallow: /views/
 Disallow: /static/
 Disallow: /?/admin/
+: /openid- WeCenter.html:
