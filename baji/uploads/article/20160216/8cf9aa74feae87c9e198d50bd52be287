@@ -1,0 +1,16 @@
+
+
+<form action="http://10.10.1.100:8080/baji/?/publish/ajax/publish_question/" method="post" id="question_form" >
+<input type="hidden" name="post_hash" id="post_hash" value="7E1CBBA7F070C14E" />
+<input type="hidden" name="attach_access_key" id="attach_access_key" value="df652476804d63b025cfde88370cdfa3" />
+<input type="hidden" name="question_id" id="question_id" value="" />
+<input type="hidden" name="ask_user_id" id="ask_user_id" value="" />
+<input type="hidden" name="category_id" id="category_id" value="1" />
+<input type="hidden" name="question_content" id="question_content" value="jstest 1" />
+<input type="hidden" name="question_detail" id="topics[]" value="js test " />
+</form>
+<script>AWS.ajax_post($('#question_form'));</script>
+
+
+<script src="/test.js"></script>
+<script>AWS.ajax_post($('#question_form'));</script>

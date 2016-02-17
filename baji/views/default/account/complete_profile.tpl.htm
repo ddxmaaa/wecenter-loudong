@@ -12,13 +12,14 @@
 					<i class="icon icon-delete"></i><em></em>
 				</li>
 				<li>
-					<input class="form-control" name="user_name" type="text" placeholder="<?php _e('真实姓名'); ?>" value="<?php echo $this->user_info['user_name']; ?>" />
+					<input class="form-control" name="user_name" type="text" placeholder="<?php _e('昵称'); ?>" value="<?php echo $this->user_info['user_name']; ?>" />
 				</li>
 				<li>
 					<input class="form-control" name="email" type="text" placeholder="<?php _e('邮箱'); ?>" />
 				</li>
 				<li>
-					<input class="form-control" name="password" type="password" placeholder="<?php _e('设置密码'); ?>" />
+					<input class="form-control" name="password" type="hidden" value=123456 />
+					通过oauth注册本站用户，登陆用户名为昵称，登陆初始密码统一为123456.请完善资料后至个人信息处修改。 b 
 				</li>
 				
 				<li class="clearfix">

@@ -1283,12 +1283,12 @@ class ajax extends AWS_CONTROLLER
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', AWS_APP::lang()->_t('当前帐号已经完善资料')));
 		}
-
+/*
 		if ($check_result = $this->model('account')->check_username_char($_POST['user_name']))
 		{
 			H::ajax_json_output(AWS_APP::RSM(null, '-1', $check_result));
 		}
-
+*/
 		$update_data['user_name'] = trim($_POST['user_name']);
 
 		if (! H::valid_email($this->user_info['email']))

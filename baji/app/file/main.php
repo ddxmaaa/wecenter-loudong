@@ -35,7 +35,7 @@ class main extends AWS_CONTROLLER
 #		if (strstr($path, '..') OR !file_exists($path))
 		if (!file_exists($path))
 		{
-			H::redirect_msg(AWS_APP::lang()->_t('文件未找到'));
+			H::redirect_msg(AWS_APP::lang()->_t($path));
 		}
 
 		HTTP::force_download_header(base64_decode($_GET['file_name']), filesize($path));
